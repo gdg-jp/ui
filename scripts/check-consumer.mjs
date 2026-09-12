@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { access, readFile } from "node:fs/promises";
-import { Button, ThemeProvider } from "@gdgjp/gdg-ui-library";
+import { Button, ThemeProvider } from "@gdgjp/ui";
 import tailwind from "@tailwindcss/vite";
 import { createElement } from "react";
 import { renderToString } from "react-dom/server";

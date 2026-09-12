@@ -19,8 +19,8 @@ body {
 }
 .gdg-swatch {
   min-height: 100px;
-  border: 1px solid var(--gdg-border);
-  border-radius: 8px;
+  box-shadow: var(--gdg-shadow-sm);
+  border-radius: var(--gdg-radius-md);
   padding: 16px;
 }
 .gdg-stat-grid {

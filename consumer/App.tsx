@@ -1,4 +1,4 @@
-import { Button, Card, FormField, Input, ThemeProvider, ThemeToggle } from "@gdgjp/gdg-ui-library";
+import { Button, Card, FormField, Input, ThemeProvider, ThemeToggle } from "@gdgjp/ui";
 export function App() {
   return (
     <ThemeProvider nonce="consumer-test">

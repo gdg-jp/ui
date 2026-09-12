@@ -1,13 +1,18 @@
 import type { Preview } from "@storybook/react-vite";
-import { type ReactNode, useEffect } from "react";
-import { ThemeProvider, useTheme } from "../src";
+import { type ReactNode, useEffect, useRef } from "react";
+import { ThemeProvider, useTheme } from "../src/index.ts";
 import "../src/styles/tokens.css";
 import "../src/styles/components.css";
 import "../src/styles/fonts.css";
 import "../stories/preview.css";
 function SyncTheme({ theme, children }: { theme: string; children: ReactNode }) {
   const { setTheme } = useTheme();
-  useEffect(() => setTheme(theme), [theme, setTheme]);
+  const syncedTheme = useRef<string>();
+  useEffect(() => {
+    if (syncedTheme.current === theme) return;
+    syncedTheme.current = theme;
+    setTheme(theme);
+  }, [theme, setTheme]);
   return children;
 }
 const preview: Preview = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import * as UI from "../src";
+import * as UI from "../src/index.ts";
 function Catalog() {
   return (
     <div className="gdg-catalog">
@@ -204,7 +204,7 @@ export function Foundations() {
           <UI.Text size="xs">補助 12px / 状態と時刻</UI.Text>
         </UI.Stack>
       </UI.Card>
-      <UI.Text>余白: 4px単位 / 角丸: 6・8・10・12px / 操作: 40px、タッチ44px</UI.Text>
+      <UI.Text>余白: 4px単位 / 角丸: 12・16・20・24px / 操作: 40px、タッチ44px</UI.Text>
     </div>
   );
 }

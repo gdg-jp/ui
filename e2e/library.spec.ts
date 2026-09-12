@@ -114,6 +114,27 @@ test("sample editing, empty state, toast and confirmation", async ({ page }) => 
   await page.getByRole("button", { name: "削除する", exact: true }).click();
   await expect(page.getByRole("heading", { name: "イベントがありません" })).toBeVisible();
 });
+test("storybook theme control and sample navigation remain interactive", async ({ page }) => {
+  await page.goto(story("patterns-admin--default"));
+  await page.getByLabel("配色").selectOption("dark");
+  await expect(page.locator("html")).toHaveClass("dark");
+  await expect(page.getByLabel("配色")).toHaveValue("dark");
+
+  for (const destination of ["リンク", "メンバー", "設定", "イベント"]) {
+    const link = page.getByRole("link", { name: destination, exact: true });
+    await link.click();
+    await expect(link).toHaveAttribute("aria-current", "page");
+    await expect(page.getByRole("heading", { name: destination, exact: true })).toBeVisible();
+  }
+  await page.goBack();
+  await expect(page.getByRole("heading", { name: "設定", exact: true })).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.getByRole("button", { name: "ナビゲーション" }).click();
+  await page.getByRole("dialog").getByRole("link", { name: "設定", exact: true }).click();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "設定", exact: true })).toBeVisible();
+});
 test("200 percent text zoom remains usable", async ({ page }) => {
   await page.setViewportSize({ width: 640, height: 450 });
   await page.goto(story("patterns-admin--default"));
@@ -160,7 +181,7 @@ test("Tailwind CSS-first config and utility overrides work from package exports"
   await expect(page.getByTestId("accent")).toHaveCSS("background-color", "rgb(249, 171, 0)");
   await expect(page.getByRole("button", { name: "utility override" })).toHaveCSS(
     "border-radius",
-    "12px",
+    "24px",
   );
   await expect(page.getByRole("button", { name: "utility override" })).toHaveCSS(
     "padding-left",
@@ -202,6 +223,8 @@ test("toast uses theme and motion tokens", async ({ page }) => {
   await page.getByRole("button", { name: "通知を表示" }).click();
   const toast = page.locator("[data-sonner-toast]");
   await expect(toast).toHaveCSS("background-color", "rgb(20, 20, 20)");
+  await expect(toast).toHaveCSS("border-top-width", "0px");
+  expect(await toast.evaluate((element) => getComputedStyle(element).boxShadow)).not.toBe("none");
   await expect(toast).toHaveCSS("transition-duration", "0.25s, 0.25s");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(toast).toHaveCSS("transition-property", "opacity");

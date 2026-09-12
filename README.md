@@ -8,24 +8,24 @@ GDG Apps の正式なWebデザインシステム。React 19、Radix Primitives�
 
 | コマンド | 内容 |
 | --- | --- |
-| `pnpm --filter @gdgjp/gdg-ui-library dev` | Storybook、port 6006 |
-| `pnpm --filter @gdgjp/gdg-ui-library build` | ESM、型宣言、CSS、フォントをdistへ出力 |
-| `pnpm --filter @gdgjp/gdg-ui-library typecheck` | 実装・Storybookの型検査 |
-| `pnpm --filter @gdgjp/gdg-ui-library test` | 公開API・SSR・色のコントラスト |
-| `pnpm --filter @gdgjp/gdg-ui-library test:consumer` | ビルド済み公開exportのみでSSR・型解決・ブラウザービルド |
-| `pnpm --filter @gdgjp/gdg-ui-library test:e2e` | Storybook／consumerをビルドしてPlaywright・axe・画像比較 |
+| `pnpm --filter @gdgjp/ui dev` | Storybook、port 6006 |
+| `pnpm --filter @gdgjp/ui build` | ESM、型宣言、CSS、フォントをdistへ出力 |
+| `pnpm --filter @gdgjp/ui typecheck` | 実装・Storybookの型検査 |
+| `pnpm --filter @gdgjp/ui test` | 公開API・SSR・色のコントラスト |
+| `pnpm --filter @gdgjp/ui test:consumer` | ビルド済み公開exportのみでSSR・型解決・ブラウザービルド |
+| `pnpm --filter @gdgjp/ui test:e2e` | Storybook／consumerをビルドしてPlaywright・axe・画像比較 |
 
-ブラウザーの初回準備は `pnpm --filter @gdgjp/gdg-ui-library exec playwright install chromium`。生成物はコミットしません。画像比較の基準画像はテスト資産として管理します。
+ブラウザーの初回準備は `pnpm --filter @gdgjp/ui exec playwright install chromium`。生成物はコミットしません。画像比較の基準画像はテスト資産として管理します。
 
 ## 利用
 
-利用アプリのdependenciesに `"@gdgjp/gdg-ui-library": "workspace:*"` を登録します。今回は既存アプリへの登録・換装は実施していません。
+利用アプリのdependenciesに `"@gdgjp/ui": "workspace:*"` を登録します。今回は既存アプリへの登録・換装は実施していません。
 
 ```tsx
-import { ThemeProvider, Button, FormField, Input } from "@gdgjp/gdg-ui-library";
-import "@gdgjp/gdg-ui-library/tokens.css";
-import "@gdgjp/gdg-ui-library/components.css";
-import "@gdgjp/gdg-ui-library/fonts.css";
+import { ThemeProvider, Button, FormField, Input } from "@gdgjp/ui";
+import "@gdgjp/ui/tokens.css";
+import "@gdgjp/ui/components.css";
+import "@gdgjp/ui/fonts.css";
 
 export function App() {
   return (
@@ -48,9 +48,9 @@ export function App() {
 ```css
 @layer theme, base, gdg-tokens, gdg-base, gdg-components, utilities;
 @import "tailwindcss";
-@import "@gdgjp/gdg-ui-library/tailwind.css";
-@import "@gdgjp/gdg-ui-library/components.css";
-@import "@gdgjp/gdg-ui-library/fonts.css";
+@import "@gdgjp/ui/tailwind.css";
+@import "@gdgjp/ui/components.css";
+@import "@gdgjp/ui/fonts.css";
 ```
 
 `tailwind.css` はトークンと `@theme inline` の対応表です。Tailwind本体やPreflightは含みません。上の例では利用側が `tailwindcss` のimportによってPreflightを選択しています。リセット不要ならTailwindのtheme.cssとutilities.cssだけを読み込んでください。

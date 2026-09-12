@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useEffect, useRef, useState } from "react";
-import * as UI from "../src";
+import * as UI from "../src/index.ts";
 function ContractExamples() {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectOpen, setSelectOpen] = useState(false);

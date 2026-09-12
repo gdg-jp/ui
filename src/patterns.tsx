@@ -72,9 +72,9 @@ export function Toaster(props: ComponentProps<typeof Sonner>) {
         style: {
           background: "var(--gdg-surface)",
           color: "var(--gdg-text)",
-          borderColor: "var(--gdg-border)",
+          border: "none",
           borderRadius: "var(--gdg-radius-md)",
-          boxShadow: "none",
+          boxShadow: "var(--gdg-shadow-md)",
           fontFamily: "var(--gdg-font-sans)",
           transition: "var(--gdg-toast-transition)",
           ...props.toastOptions?.style,

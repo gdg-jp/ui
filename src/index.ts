@@ -1,6 +1,3 @@
-export * from "./foundations";
-export * from "./forms";
-export * from "./overlays";
-export * from "./patterns";
-export * from "./theme";
+export * from "./components";
+export * from "./themes";
 export { cn } from "./utils";

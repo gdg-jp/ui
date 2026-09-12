@@ -3,7 +3,7 @@
   :root,
   .light {
     --gdg-white: #ffffff;
-    --gdg-white-2: #f0f0f0;
+    --gdg-white-2: #f8f8f8;
     --gdg-black: #141414;
     --gdg-black-2: #1e1e1e;
     --gdg-blue: #4285f4;
@@ -16,12 +16,28 @@
     --gdg-muted: #606060;
     --gdg-border: rgb(30 30 30 / 10%);
     --gdg-input-border: #858585;
-    --gdg-shadow-sm: 0 1px 2px rgb(30 30 30 / 14%), 0 2px 5px rgb(30 30 30 / 10%);
-    --gdg-shadow-md: 0 2px 6px rgb(30 30 30 / 14%), 0 6px 16px rgb(30 30 30 / 10%);
-    --gdg-shadow-lg: 0 8px 24px rgb(30 30 30 / 18%), 0 2px 8px rgb(30 30 30 / 12%);
+    /* Claymorphism: a soft raised edge plus a restrained inner highlight. */
+    --gdg-shadow-sm:
+      0 4px 8px -5px rgb(30 30 30 / 32%), 0 2px 3px rgb(30 30 30 / 10%),
+      inset 2px 2px 4px rgb(255 255 255 / 90%), inset -2px -3px 5px rgb(30 30 30 / 8%);
+    --gdg-shadow-md:
+      0 12px 20px -12px rgb(30 30 30 / 38%), 0 4px 8px -4px rgb(30 30 30 / 14%),
+      inset 2px 3px 6px rgb(255 255 255 / 90%), inset -3px -4px 7px rgb(30 30 30 / 8%);
+    --gdg-shadow-lg:
+      0 18px 34px -18px rgb(30 30 30 / 42%), 0 7px 14px -6px rgb(30 30 30 / 16%),
+      inset 3px 4px 8px rgb(255 255 255 / 92%), inset -4px -5px 9px rgb(30 30 30 / 9%);
+    --gdg-shadow-hover:
+      0 16px 26px -14px rgb(30 30 30 / 42%),
+      0 5px 10px -5px rgb(30 30 30 / 16%), inset 2px 3px 6px rgb(255 255 255 / 92%),
+      inset -3px -4px 7px rgb(30 30 30 / 8%);
+    --gdg-shadow-pressed: inset 3px 3px 7px rgb(30 30 30 / 16%), inset -2px -2px 5px
+      rgb(255 255 255 / 72%), 0 1px 2px rgb(30 30 30 / 10%);
+    --gdg-shadow-inset: inset 3px 3px 7px rgb(30 30 30 / 14%), inset -2px -2px 5px
+      rgb(255 255 255 / 78%);
     --gdg-shadow-right: 8px 0 20px -12px rgb(30 30 30 / 32%);
     --gdg-shadow-left: -8px 0 20px -12px rgb(30 30 30 / 32%);
     --gdg-shadow-bottom: 0 8px 20px -14px rgb(30 30 30 / 32%);
+    --gdg-edge-highlight: rgb(255 255 255 / 28%);
     --gdg-primary: var(--gdg-blue);
     --gdg-on-primary: var(--gdg-white);
     --gdg-primary-hover: #5692f5;
@@ -50,10 +66,10 @@
     --gdg-sidebar-width: 240px;
     --gdg-page-width: 1280px;
     --gdg-layer-skip: 100;
-    --gdg-radius-sm: 12px;
-    --gdg-radius-md: 16px;
-    --gdg-radius-card: 20px;
-    --gdg-radius-dialog: 24px;
+    --gdg-radius-sm: 14px;
+    --gdg-radius-md: 18px;
+    --gdg-radius-card: 28px;
+    --gdg-radius-dialog: 32px;
     --gdg-text-xs: 12px;
     --gdg-text-sm: 14px;
     --gdg-text-md: 16px;
@@ -86,12 +102,26 @@
     --gdg-muted: #b0b0b0;
     --gdg-border: rgb(240 240 240 / 12%);
     --gdg-input-border: #777777;
-    --gdg-shadow-sm: 0 1px 3px rgb(0 0 0 / 55%), 0 2px 6px rgb(0 0 0 / 36%);
-    --gdg-shadow-md: 0 3px 9px rgb(0 0 0 / 58%), 0 8px 20px rgb(0 0 0 / 38%);
-    --gdg-shadow-lg: 0 12px 32px rgb(0 0 0 / 64%), 0 3px 10px rgb(0 0 0 / 44%);
+    --gdg-shadow-sm:
+      0 4px 8px -5px rgb(0 0 0 / 58%), 0 2px 4px rgb(0 0 0 / 45%),
+      inset 2px 2px 4px rgb(255 255 255 / 6%), inset -2px -3px 5px rgb(0 0 0 / 26%);
+    --gdg-shadow-md:
+      0 12px 20px -12px rgb(0 0 0 / 70%), 0 4px 8px -4px rgb(0 0 0 / 48%),
+      inset 2px 3px 6px rgb(255 255 255 / 6%), inset -3px -4px 7px rgb(0 0 0 / 28%);
+    --gdg-shadow-lg:
+      0 18px 34px -18px rgb(0 0 0 / 78%), 0 7px 14px -6px rgb(0 0 0 / 54%),
+      inset 3px 4px 8px rgb(255 255 255 / 7%), inset -4px -5px 9px rgb(0 0 0 / 30%);
+    --gdg-shadow-hover:
+      0 16px 26px -14px rgb(0 0 0 / 78%), 0 5px 10px -5px rgb(0 0 0 / 52%),
+      inset 2px 3px 6px rgb(255 255 255 / 7%), inset -3px -4px 7px rgb(0 0 0 / 28%);
+    --gdg-shadow-pressed: inset 3px 3px 7px rgb(0 0 0 / 38%), inset -2px -2px 5px
+      rgb(255 255 255 / 5%), 0 1px 2px rgb(0 0 0 / 38%);
+    --gdg-shadow-inset: inset 3px 3px 7px rgb(0 0 0 / 34%), inset -2px -2px 5px
+      rgb(255 255 255 / 5%);
     --gdg-shadow-right: 8px 0 22px -10px rgb(0 0 0 / 72%);
     --gdg-shadow-left: -8px 0 22px -10px rgb(0 0 0 / 72%);
     --gdg-shadow-bottom: 0 8px 22px -12px rgb(0 0 0 / 72%);
+    --gdg-edge-highlight: rgb(255 255 255 / 7%);
     --gdg-link: #8ab4f8;
     --gdg-focus: #8ab4f8;
     --gdg-selected: #253655;

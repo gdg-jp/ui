@@ -1,6 +1,6 @@
 # GDG Apps UI library
 
-GDG Apps の正式なWebデザインシステム。React 19、Radix Primitives、CSSトークンを基盤とし、Light／Dark、アクセシビリティ、控えめなアニメーションを共通化します。ルーター・認証・データ取得から独立したprivate workspaceです。
+GDG Apps の正式なWebデザインシステム。React 19、Radix Primitives、CSSトークンを基盤とし、claymorphismの柔らかな立体感、Light／Dark、アクセシビリティ、控えめなアニメーションを共通化します。ルーター・認証・データ取得から独立したprivate workspaceです。
 
 ## 開発
 

@@ -4,7 +4,7 @@ import { ThemeProvider, useTheme } from "../src/index.ts";
 import "../src/styles/tokens.css";
 import "../src/styles/components.css";
 import "../src/styles/fonts.css";
-import "../stories/preview.css";
+import "../src/examples/preview.css";
 function SyncTheme({ theme, children }: { theme: string; children: ReactNode }) {
   const { setTheme } = useTheme();
   const syncedTheme = useRef<string>();
